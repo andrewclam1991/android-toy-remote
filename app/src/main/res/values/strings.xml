@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">commandpattern</string>
+    <string name="light_on">Light On</string>
+    <string name="light_off">Light off</string>
+</resources>
