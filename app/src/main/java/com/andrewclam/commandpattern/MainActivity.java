@@ -48,6 +48,12 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     button2.setOnClickListener(view -> {
       mPresenter.onLightOffButtonClicked();
     });
+
+    View button3 = findViewById(R.id.command_garage_open);
+    button3.setOnClickListener(view -> {
+      mPresenter.onGarageDoorOpenButtonClicked();
+    });
+
   }
 
   @Override

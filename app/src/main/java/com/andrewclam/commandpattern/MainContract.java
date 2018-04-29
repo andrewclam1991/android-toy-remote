@@ -18,5 +18,7 @@ public class MainContract {
 
     void onLightOnButtonClicked();
 
+    void onGarageDoorOpenButtonClicked();
+
   }
 }

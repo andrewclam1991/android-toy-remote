@@ -35,17 +35,13 @@ public class MainPresenter implements MainContract.Presenter{
 
   MainPresenter(){
     mRemoteControl = new SimpleRemoteControl();
-    // Create "garage door open" command
-    GarageDoor garageDoor = new GarageDoorImpl();
-    Command garageDoorOpenCommand = new GarageDoorOpenCommand(garageDoor);
-    mRemoteControl.setCommand(garageDoorOpenCommand);
   }
 
   @Override
   public void onLightOnButtonClicked() {
     // Create "light on" command
-    Light light = new LightImpl();
-    Command lightOnCommand = new LightOnCommand(light);
+    Light light = new LightImpl(); // Create the receiver
+    Command lightOnCommand = new LightOnCommand(light); // Set the receiver to the concrete command
     mRemoteControl.setCommand(lightOnCommand);
     mRemoteControl.buttonWasPressed();
     if (mView != null) mView.showResultMsg("light on, see log for impl");
@@ -61,4 +57,13 @@ public class MainPresenter implements MainContract.Presenter{
     if (mView != null) mView.showResultMsg("light off, see log for impl");
   }
 
+  @Override
+  public void onGarageDoorOpenButtonClicked() {
+    // Create "garage door open" command
+    GarageDoor garageDoor = new GarageDoorImpl();
+    Command garageDoorOpenCommand = new GarageDoorOpenCommand(garageDoor);
+    mRemoteControl.setCommand(garageDoorOpenCommand);
+    mRemoteControl.buttonWasPressed();
+    if (mView != null) mView.showResultMsg("garage opened, see log for impl");
+  }
 }
