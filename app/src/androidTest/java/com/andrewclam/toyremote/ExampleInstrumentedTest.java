@@ -1,4 +1,4 @@
-package com.andrewclam.commandpattern;
+package com.andrewclam.toyremote;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

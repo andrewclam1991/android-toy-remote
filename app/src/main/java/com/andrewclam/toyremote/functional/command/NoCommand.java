@@ -1,4 +1,4 @@
-package com.andrewclam.commandpattern.functional.command;
+package com.andrewclam.toyremote.functional.command;
 
 public class NoCommand implements Command {
   @Override

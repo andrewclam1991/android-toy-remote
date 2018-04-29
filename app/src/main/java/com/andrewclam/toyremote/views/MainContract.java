@@ -1,4 +1,4 @@
-package com.andrewclam.commandpattern.views;
+package com.andrewclam.toyremote.views;
 
 public class MainContract {
 

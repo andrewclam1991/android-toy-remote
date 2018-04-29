@@ -1,8 +1,8 @@
-package com.andrewclam.commandpattern.data.models;
+package com.andrewclam.toyremote.data.models;
 
 import android.util.Log;
 
-import com.andrewclam.commandpattern.data.vendorapi.Light;
+import com.andrewclam.toyremote.data.vendorapi.Light;
 
 public class LightImpl implements Light {
   @Override

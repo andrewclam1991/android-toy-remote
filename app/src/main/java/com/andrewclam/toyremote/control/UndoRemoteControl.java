@@ -1,18 +1,20 @@
-package com.andrewclam.commandpattern.control;
+package com.andrewclam.toyremote.control;
 
 import android.support.annotation.NonNull;
 
-import com.andrewclam.commandpattern.functional.command.Command;
-import com.andrewclam.commandpattern.functional.command.NoCommand;
+import com.andrewclam.toyremote.undo.command.Command;
+import com.andrewclam.toyremote.undo.command.NoCommand;
 
-public class FunctionalRemoteControl {
+public class UndoRemoteControl {
   @NonNull
   private final Command[] onCommands;
 
   @NonNull
   private final Command[] offCommands;
 
-  public FunctionalRemoteControl(int numSlots){
+  private Command undoCommand;
+
+  public UndoRemoteControl(int numSlots){
     onCommands = new Command[numSlots];
     offCommands = new Command[numSlots];
 
@@ -22,6 +24,9 @@ public class FunctionalRemoteControl {
       onCommands[i] = noCommand;
       offCommands[i] = noCommand;
     }
+
+    // default undo command to do nothing
+    undoCommand = noCommand;
   }
 
   public void setCommand(int slot, Command onCommand, Command offCommand){
@@ -31,13 +36,15 @@ public class FunctionalRemoteControl {
 
   public void onOnButtonClicked(int slot){
     onCommands[slot].execute();
+    undoCommand = onCommands[slot];
   }
 
   public void onOffButtonClicked(int slot){
     offCommands[slot].execute();
+    undoCommand = offCommands[slot];
   }
 
   public void onUndoButtonClicked(){
-    // Not supported
+    undoCommand.undo();
   }
 }

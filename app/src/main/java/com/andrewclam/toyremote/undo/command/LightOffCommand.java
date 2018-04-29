@@ -1,6 +1,6 @@
-package com.andrewclam.commandpattern.undo.command;
+package com.andrewclam.toyremote.undo.command;
 
-import com.andrewclam.commandpattern.data.vendorapi.Light;
+import com.andrewclam.toyremote.data.vendorapi.Light;
 
 /**
  * Concrete implementation of a {@link Command}

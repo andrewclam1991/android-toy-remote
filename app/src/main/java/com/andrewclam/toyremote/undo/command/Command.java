@@ -1,4 +1,4 @@
-package com.andrewclam.commandpattern.undo.command;
+package com.andrewclam.toyremote.undo.command;
 
 /**
  * Simple Command Interface

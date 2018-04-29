@@ -1,13 +1,13 @@
-package com.andrewclam.commandpattern.views;
+package com.andrewclam.toyremote.views;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.andrewclam.commandpattern.control.FunctionalRemoteControl;
-import com.andrewclam.commandpattern.data.models.GarageDoorImpl;
-import com.andrewclam.commandpattern.data.models.LightImpl;
-import com.andrewclam.commandpattern.data.vendorapi.GarageDoor;
-import com.andrewclam.commandpattern.data.vendorapi.Light;
+import com.andrewclam.toyremote.control.FunctionalRemoteControl;
+import com.andrewclam.toyremote.data.models.GarageDoorImpl;
+import com.andrewclam.toyremote.data.models.LightImpl;
+import com.andrewclam.toyremote.data.vendorapi.GarageDoor;
+import com.andrewclam.toyremote.data.vendorapi.Light;
 
 /**
  * Simple implementation of a {@link MainContract.Presenter} class

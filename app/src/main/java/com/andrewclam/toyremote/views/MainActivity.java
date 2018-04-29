@@ -1,4 +1,4 @@
-package com.andrewclam.commandpattern.views;
+package com.andrewclam.toyremote.views;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;

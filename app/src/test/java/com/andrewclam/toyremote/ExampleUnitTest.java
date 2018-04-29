@@ -1,4 +1,4 @@
-package com.andrewclam.commandpattern;
+package com.andrewclam.toyremote;
 
 import org.junit.Test;
 

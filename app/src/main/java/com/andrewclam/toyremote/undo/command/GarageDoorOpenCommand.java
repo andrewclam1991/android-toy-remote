@@ -1,6 +1,6 @@
-package com.andrewclam.commandpattern.undo.command;
+package com.andrewclam.toyremote.undo.command;
 
-import com.andrewclam.commandpattern.data.vendorapi.GarageDoor;
+import com.andrewclam.toyremote.data.vendorapi.GarageDoor;
 
 /**
  * Concrete implementation of a {@link Command}

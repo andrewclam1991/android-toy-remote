@@ -1,4 +1,4 @@
-package com.andrewclam.commandpattern.data.vendorapi;
+package com.andrewclam.toyremote.data.vendorapi;
 
 /**
  * Example vendor device api
