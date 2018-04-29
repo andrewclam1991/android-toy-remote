@@ -1,4 +1,4 @@
-package com.andrewclam.commandpattern.command;
+package com.andrewclam.commandpattern.undo.command;
 
 public class NoCommand implements Command {
   @Override

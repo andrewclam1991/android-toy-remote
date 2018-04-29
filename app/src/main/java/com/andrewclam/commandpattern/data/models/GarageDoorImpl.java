@@ -1,8 +1,8 @@
-package com.andrewclam.commandpattern.models;
+package com.andrewclam.commandpattern.data.models;
 
 import android.util.Log;
 
-import com.andrewclam.commandpattern.vendorapi.GarageDoor;
+import com.andrewclam.commandpattern.data.vendorapi.GarageDoor;
 
 public class GarageDoorImpl implements GarageDoor {
   @Override

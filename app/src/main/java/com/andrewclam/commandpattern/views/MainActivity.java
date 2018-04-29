@@ -1,18 +1,12 @@
-package com.andrewclam.commandpattern;
+package com.andrewclam.commandpattern.views;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.andrewclam.commandpattern.command.GarageDoorOpenCommand;
-import com.andrewclam.commandpattern.command.LightOnCommand;
-import com.andrewclam.commandpattern.models.GarageDoorImpl;
-import com.andrewclam.commandpattern.models.LightImpl;
-import com.andrewclam.commandpattern.vendorapi.GarageDoor;
-import com.andrewclam.commandpattern.vendorapi.Light;
+import com.andrewclam.commandpattern.R;
 
 /**
  * Simple implementation of a {@link MainContract.View} class
@@ -20,7 +14,7 @@ import com.andrewclam.commandpattern.vendorapi.Light;
 public class MainActivity extends AppCompatActivity implements MainContract.View{
 
   @NonNull
-  private final MainContract.Presenter mPresenter = new MainPresenter();
+  private final MainContract.Presenter mPresenter = new FuncMainPresenter();
 
   @Override
   protected void onResume() {

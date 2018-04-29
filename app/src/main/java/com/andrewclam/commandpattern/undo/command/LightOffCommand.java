@@ -1,6 +1,6 @@
-package com.andrewclam.commandpattern.command;
+package com.andrewclam.commandpattern.undo.command;
 
-import com.andrewclam.commandpattern.vendorapi.Light;
+import com.andrewclam.commandpattern.data.vendorapi.Light;
 
 /**
  * Concrete implementation of a {@link Command}

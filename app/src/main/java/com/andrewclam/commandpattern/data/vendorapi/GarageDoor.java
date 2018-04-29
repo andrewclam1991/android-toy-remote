@@ -1,4 +1,4 @@
-package com.andrewclam.commandpattern.vendorapi;
+package com.andrewclam.commandpattern.data.vendorapi;
 
 public interface GarageDoor {
   void up();

@@ -1,4 +1,4 @@
-package com.andrewclam.commandpattern;
+package com.andrewclam.commandpattern.views;
 
 public class MainContract {
 

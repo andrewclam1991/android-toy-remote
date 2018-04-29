@@ -1,22 +1,18 @@
-package com.andrewclam.commandpattern;
+package com.andrewclam.commandpattern.views;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.andrewclam.commandpattern.command.Command;
-import com.andrewclam.commandpattern.command.GarageDoorOpenCommand;
-import com.andrewclam.commandpattern.command.LightOffCommand;
-import com.andrewclam.commandpattern.command.LightOnCommand;
-import com.andrewclam.commandpattern.command.NoCommand;
-import com.andrewclam.commandpattern.models.GarageDoorImpl;
-import com.andrewclam.commandpattern.models.LightImpl;
-import com.andrewclam.commandpattern.vendorapi.GarageDoor;
-import com.andrewclam.commandpattern.vendorapi.Light;
+import com.andrewclam.commandpattern.control.FunctionalRemoteControl;
+import com.andrewclam.commandpattern.data.models.GarageDoorImpl;
+import com.andrewclam.commandpattern.data.models.LightImpl;
+import com.andrewclam.commandpattern.data.vendorapi.GarageDoor;
+import com.andrewclam.commandpattern.data.vendorapi.Light;
 
 /**
  * Simple implementation of a {@link MainContract.Presenter} class
  */
-public class MainPresenter implements MainContract.Presenter{
+public class FuncMainPresenter implements MainContract.Presenter {
 
   @Nullable
   private MainContract.View mView;
@@ -32,26 +28,22 @@ public class MainPresenter implements MainContract.Presenter{
   }
 
   @NonNull
-  private final SimpleRemoteControl mRemoteControl;
+  private final FunctionalRemoteControl mRemoteControl;
 
-  MainPresenter(){
-    mRemoteControl = new SimpleRemoteControl(3);
+  FuncMainPresenter() {
+    mRemoteControl = new FunctionalRemoteControl(3);
     setupRemoteControl();
   }
 
-  private void setupRemoteControl(){
+  private void setupRemoteControl() {
     // Create "light on" and "light off" command
     // Create the receiver
     Light light = new LightImpl();
-    // Set the receivers to the concrete command
-    Command lightOnCommand = new LightOnCommand(light);
-    Command lightOffCommand = new LightOffCommand(light);
-    mRemoteControl.setCommand(0,lightOnCommand,lightOffCommand);
+    mRemoteControl.setCommand(0, light::on, light::off);
 
     // Create "garage open" and "garage close" command
     GarageDoor garageDoor = new GarageDoorImpl();
-    Command garageDoorOpenCommand = new GarageDoorOpenCommand(garageDoor);
-    mRemoteControl.setCommand(1,garageDoorOpenCommand,new NoCommand());
+    mRemoteControl.setCommand(1, garageDoor::up, garageDoor::down);
   }
 
   @Override

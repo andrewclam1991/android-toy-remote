@@ -1,4 +1,4 @@
-package com.andrewclam.commandpattern.command;
+package com.andrewclam.commandpattern.undo.command;
 
 /**
  * Simple Command Interface

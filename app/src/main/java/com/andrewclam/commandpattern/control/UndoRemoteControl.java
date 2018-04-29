@@ -1,11 +1,11 @@
-package com.andrewclam.commandpattern;
+package com.andrewclam.commandpattern.control;
 
 import android.support.annotation.NonNull;
 
-import com.andrewclam.commandpattern.command.Command;
-import com.andrewclam.commandpattern.command.NoCommand;
+import com.andrewclam.commandpattern.undo.command.Command;
+import com.andrewclam.commandpattern.undo.command.NoCommand;
 
-public class SimpleRemoteControl {
+public class UndoRemoteControl {
   @NonNull
   private final Command[] onCommands;
 
@@ -14,7 +14,7 @@ public class SimpleRemoteControl {
 
   private Command undoCommand;
 
-  public SimpleRemoteControl(int numSlots){
+  public UndoRemoteControl(int numSlots){
     onCommands = new Command[numSlots];
     offCommands = new Command[numSlots];
 
