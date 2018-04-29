@@ -20,5 +20,7 @@ public class MainContract {
 
     void onGarageDoorOpenButtonClicked();
 
+    void onUndoButtonClicked();
+
   }
 }

@@ -7,6 +7,7 @@ import com.andrewclam.commandpattern.command.Command;
 import com.andrewclam.commandpattern.command.GarageDoorOpenCommand;
 import com.andrewclam.commandpattern.command.LightOffCommand;
 import com.andrewclam.commandpattern.command.LightOnCommand;
+import com.andrewclam.commandpattern.command.NoCommand;
 import com.andrewclam.commandpattern.models.GarageDoorImpl;
 import com.andrewclam.commandpattern.models.LightImpl;
 import com.andrewclam.commandpattern.vendorapi.GarageDoor;
@@ -34,36 +35,47 @@ public class MainPresenter implements MainContract.Presenter{
   private final SimpleRemoteControl mRemoteControl;
 
   MainPresenter(){
-    mRemoteControl = new SimpleRemoteControl();
+    mRemoteControl = new SimpleRemoteControl(3);
+    setupRemoteControl();
+  }
+
+  private void setupRemoteControl(){
+    // Create "light on" and "light off" command
+    // Create the receiver
+    Light light = new LightImpl();
+    // Set the receivers to the concrete command
+    Command lightOnCommand = new LightOnCommand(light);
+    Command lightOffCommand = new LightOffCommand(light);
+    mRemoteControl.setCommand(0,lightOnCommand,lightOffCommand);
+
+    // Create "garage open" and "garage close" command
+    GarageDoor garageDoor = new GarageDoorImpl();
+    Command garageDoorOpenCommand = new GarageDoorOpenCommand(garageDoor);
+    mRemoteControl.setCommand(1,garageDoorOpenCommand,new NoCommand());
   }
 
   @Override
   public void onLightOnButtonClicked() {
-    // Create "light on" command
-    Light light = new LightImpl(); // Create the receiver
-    Command lightOnCommand = new LightOnCommand(light); // Set the receiver to the concrete command
-    mRemoteControl.setCommand(lightOnCommand);
-    mRemoteControl.buttonWasPressed();
+    mRemoteControl.onOnButtonClicked(0);
     if (mView != null) mView.showResultMsg("light on, see log for impl");
   }
 
   @Override
   public void onLightOffButtonClicked() {
-    // Create "light off" command
-    Light light = new LightImpl();
-    Command lightOffCommand = new LightOffCommand(light);
-    mRemoteControl.setCommand(lightOffCommand);
-    mRemoteControl.buttonWasPressed();
+    mRemoteControl.onOffButtonClicked(0);
     if (mView != null) mView.showResultMsg("light off, see log for impl");
   }
 
   @Override
   public void onGarageDoorOpenButtonClicked() {
-    // Create "garage door open" command
-    GarageDoor garageDoor = new GarageDoorImpl();
-    Command garageDoorOpenCommand = new GarageDoorOpenCommand(garageDoor);
-    mRemoteControl.setCommand(garageDoorOpenCommand);
-    mRemoteControl.buttonWasPressed();
+    mRemoteControl.onOnButtonClicked(1);
     if (mView != null) mView.showResultMsg("garage opened, see log for impl");
   }
+
+  @Override
+  public void onUndoButtonClicked() {
+    mRemoteControl.onUndoButtonClicked();
+  }
+
+
 }

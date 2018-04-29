@@ -3,4 +3,5 @@
     <string name="light_on">Light On</string>
     <string name="light_off">Light off</string>
     <string name="garage_open">Garage open</string>
+    <string name="undo">Undo</string>
 </resources>

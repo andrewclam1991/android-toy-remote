@@ -40,19 +40,16 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     setContentView(R.layout.activity_main);
 
     View button1 = findViewById(R.id.command_light_on);
-    button1.setOnClickListener(view -> {
-      mPresenter.onLightOnButtonClicked();
-    });
+    button1.setOnClickListener(view -> mPresenter.onLightOnButtonClicked());
 
     View button2 = findViewById(R.id.command_light_off);
-    button2.setOnClickListener(view -> {
-      mPresenter.onLightOffButtonClicked();
-    });
+    button2.setOnClickListener(view -> mPresenter.onLightOffButtonClicked());
 
     View button3 = findViewById(R.id.command_garage_open);
-    button3.setOnClickListener(view -> {
-      mPresenter.onGarageDoorOpenButtonClicked();
-    });
+    button3.setOnClickListener(view -> mPresenter.onGarageDoorOpenButtonClicked());
+
+    View undoButton = findViewById(R.id.command_undo);
+    undoButton.setOnClickListener(view -> mPresenter.onUndoButtonClicked());
 
   }
 
